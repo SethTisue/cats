@@ -59,6 +59,7 @@ class RepresentableSuite extends CatsSuite {
   }
 
   {
+    implicit val isoPair = Isomorphisms.invariant[String => ?]
     implicit val monadInstance = Representable.monad[String => ?]
     checkAll("String => ?", MonadTests[String => ?].monad[String, String, String])
   }
